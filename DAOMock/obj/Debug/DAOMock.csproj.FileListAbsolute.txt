@@ -1,0 +1,14 @@
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\obj\Debug\DAOMock.csproj.CoreCompileInputs.cache
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\bin\Debug\DAOMock.dll.config
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\bin\Debug\DAOMock.dll
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\bin\Debug\DAOMock.pdb
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\bin\Debug\Core.dll
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\bin\Debug\Interfaces.dll
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\bin\Debug\Core.pdb
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\bin\Debug\Core.dll.config
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\bin\Debug\Interfaces.pdb
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\bin\Debug\Interfaces.dll.config
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\obj\Debug\DAOMock.csprojAssemblyReference.cache
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\obj\Debug\DAOMock.csproj.CopyComplete
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\obj\Debug\DAOMock.dll
+C:\Users\Mateusz Dobrowolski\source\repos\GameShop\DAOMock\obj\Debug\DAOMock.pdb
