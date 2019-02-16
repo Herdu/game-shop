@@ -1,7 +1,6 @@
-﻿using MateuszDobrowolski.Interfaces;
-using System;
-using System.Collections.Generic;
-
+﻿using MateuszDobrowolski.GameShop.Properties;
+using MateuszDobrowolski.UI;
+using System.Windows;
 
 namespace MateuszDobrowolski.GameShop
 {
@@ -9,12 +8,17 @@ namespace MateuszDobrowolski.GameShop
     {
         static void Main(string[] args)
         {
-            IDAO IDAO = new DAOMock.DB();
-           IEnumerable<IGame> Games = IDAO.GetAllGames(); 
-            foreach(var Game in Games)
-            {
-                Console.WriteLine(Game);
-            }
+
+ 
+
+            RunApplication();
+        }
+
+        private static void RunApplication()
+        {
+             app = new MateuszDobrowolski.UI.App();
+           
+
         }
     }
 }

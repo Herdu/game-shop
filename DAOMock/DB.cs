@@ -58,6 +58,10 @@ namespace MateuszDobrowolski.DAOMock
 
         }
 
+        public IGame GetGameById(int id)
+        {
+            return _games.Find((game) => game.ID == id);
+        }
 
         public IEnumerable<IGame> GetAllGames()
         {
@@ -67,6 +71,21 @@ namespace MateuszDobrowolski.DAOMock
         public IEnumerable<IProducer> GetAllProducers()
         {
             return _producers;
+        }
+
+        public IGame NewGame()
+        {
+            return new DataObjects.Game();
+        }
+
+        public IGameRelease NewGameRelease()
+        {
+            return new DataObjects.GameRelease();
+        }
+
+        public IProducer NewProducer()
+        {
+            return new DataObjects.Producer();
         }
     }
 }

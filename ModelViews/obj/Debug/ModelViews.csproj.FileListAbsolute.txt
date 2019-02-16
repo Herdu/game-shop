@@ -1,0 +1,6 @@
+C:\Users\matt\dev\game-shop\ModelViews\obj\Debug\ModelViews.csprojAssemblyReference.cache
+C:\Users\matt\dev\game-shop\ModelViews\obj\Debug\ModelViews.csproj.CoreCompileInputs.cache
+C:\Users\matt\dev\game-shop\ModelViews\bin\Debug\ViewModels.dll
+C:\Users\matt\dev\game-shop\ModelViews\bin\Debug\ViewModels.pdb
+C:\Users\matt\dev\game-shop\ModelViews\obj\Debug\ViewModels.dll
+C:\Users\matt\dev\game-shop\ModelViews\obj\Debug\ViewModels.pdb

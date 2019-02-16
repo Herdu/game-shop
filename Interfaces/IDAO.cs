@@ -7,6 +7,10 @@ namespace MateuszDobrowolski.Interfaces
     {
         IEnumerable<IGame> GetAllGames();
         IEnumerable<IProducer> GetAllProducers();
+        IGame NewGame();
+        IGameRelease NewGameRelease();
+        IProducer NewProducer();
+        IGame GetGameById(int id);
     }
 }
     
