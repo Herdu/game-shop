@@ -5,12 +5,82 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="GameFormView">
+      Title="GameFormView"
+      Margin="20">
+    <Page.Resources>
+        <Style x:Key="TextBoxWithErrors">
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <DockPanel LastChildFill="True">
+                            <ListBox DockPanel.Dock="Bottom" 
+                                     ItemsSource="{Binding ElementName=ErrorComponent,Path=AdornedElement.(Validation.Errors)}" 
+                                     DisplayMemberPath="ErrorContent"/>
+                            <Grid DockPanel.Dock="Left">
+                                <Ellipse Width="20" Height="20" Stroke="DarkRed" Fill="DarkRed" />
+                                <Label Content="{Binding ElementName=ErrorComponent,Path=AdornedElement.(Validation.Errors).Count}" 
+                                       Foreground="White"/>
+                            </Grid>
+                            <Border BorderBrush="DarkRed" BorderThickness="2" >
+                                <AdornedElementPlaceholder Name="ErrorComponent" />
+                            </Border>
+                        </DockPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.MinWidth" Value="150"/>
+            <Setter Property="Control.Padding" Value="3" />
+            <Setter Property="Control.Margin" Value="10" />
 
-    <Grid>
-        <StackPanel>
-            <TextBlock Text="{Binding FormTitle}"></TextBlock>
-            <Button Command="{ Binding GoToListCommand }">Back to List</Button>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="Control.Margin" Value="20 2 2 70"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+      
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </Page.Resources>
+    <DockPanel LastChildFill="False">
+        <TextBlock DockPanel.Dock="Top" Style="{StaticResource PageTitle}" Text="{Binding FormTitle}"></TextBlock>
+
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0">Name</Label>
+                <TextBox Margin="5" Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxWithErrors}" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"/>
+                <Label Grid.Row="1">Producer</Label>
+                <ComboBox Margin="5" Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Producers}" DisplayMemberPath="Name" Style="{StaticResource TextBoxWithErrors}" SelectedItem="{Binding Producer,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" />
+                <Label Grid.Row="2">Release date</Label>
+                <DatePicker Margin="5" Grid.Row="2" Grid.Column="1" SelectedDate="{Binding ReleaseDate, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" VerticalAlignment="Center">
+                </DatePicker>
+                <Label Grid.Row="3">Game type</Label>
+                <ComboBox Margin="5" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding GameTypeSelectOptions}" DisplayMemberPath="Name" Style="{StaticResource TextBoxWithErrors}" SelectedItem="{Binding GameType,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" />
+
+                <Label Grid.Row="4">Price (PLN)</Label>
+                <TextBox Margin="5" Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxWithErrors}" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" />
+            </Grid>
+        </Grid>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Style="{StaticResource BottomMenu}">
+            <Button  Command="{ Binding SaveGameCommand }" Style="{StaticResource PrimaryButton}">Save</Button>
+            <Button Command="{ Binding GoToListCommand }" Style="{StaticResource SecondaryButton}">Back to List</Button>
         </StackPanel>
-    </Grid>
+    </DockPanel>
 </Page>

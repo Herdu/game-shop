@@ -6,7 +6,7 @@ namespace MateuszDobrowolski.Interfaces
     {
         IEnumerable<IGame> GetAllGames();
         IEnumerable<IProducer> GetAllProducers();
-        IEnumerable<IGame> GetGames(string name, int producerId);
+        IEnumerable<IGame> GetGames(string name, int producerId, int gameType);
         IGame NewGame();
         IGame GetGameById(int id);
         void DeleteGame(int gameId);

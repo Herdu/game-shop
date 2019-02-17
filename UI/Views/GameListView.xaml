@@ -1,36 +1,46 @@
 ﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"	
 	         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="MateuszDobrowolski.UI.Views.GameListView"
-             xmlns:viewmodels="clr-namespace:MateuszDobrowolski.UI.ViewModels">
+             xmlns:viewmodels="clr-namespace:MateuszDobrowolski.UI.ViewModels"
+             Margin="20">
     <Page.DataContext>
         <viewmodels:GameListViewModel />
     </Page.DataContext>
+    
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" Style="{StaticResource PageTitle}">Game list</TextBlock>
+        <StackPanel DockPanel.Dock="Top"  Orientation="Horizontal">
+            <TextBlock  Width="80"> Producer:</TextBlock>
+            <ComboBox Width="100" ItemsSource="{Binding ProducerSelectOptions}" DisplayMemberPath="Name" SelectedIndex="0" SelectedItem="{Binding FilterProducer, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock>Type:</TextBlock>
+            <ComboBox Width="100" ItemsSource="{Binding GameTypeSelectOptions}" DisplayMemberPath="Name" SelectedIndex="0" SelectedItem="{Binding FilterGameType, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock>Name:</TextBlock>
+            <TextBox Width="100" Text="{Binding FilterName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,15,0"></TextBox>
+            <Button  Command="{Binding FilterCommand}" Style="{StaticResource PrimaryButton}">Search</Button>
+            <Button Command="{Binding ResetFilterCommand}" Style="{StaticResource SecondaryButton}">Clear</Button>
+        </StackPanel>
 
-    <Grid>
-        <DockPanel>
-            <StackPanel DockPanel.Dock="Top"  Orientation="Horizontal">
-                <ComboBox ItemsSource="{Binding ProducerSelectOptions}" DisplayMemberPath="Name" SelectedIndex="0" SelectedItem="{Binding FilterProducer, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox MinWidth="100" Text="{Binding FilterName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ></TextBox>
-                <Button Command="{Binding FilterCommand}">Search</Button>
-                <Button Command="{Binding ResetFilterCommand}">Clear</Button>
-                <Button Command="{Binding NewGameCommand}">New game</Button>
-            </StackPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal"  Style="{StaticResource BottomMenu}">
+            <Button DockPanel.Dock="Bottom" Command="{Binding NewGameCommand}" Style="{StaticResource PrimaryButton}" HorizontalAlignment="Left">New game</Button>
+        </StackPanel>
 
-            <ListBox Name="GamesListBox" DockPanel.Dock="Left" ItemsSource="{Binding Games}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Name="GameListItem">
-                            <TextBlock Text="{Binding ID}" MinWidth="20" />
-                            <TextBlock Text="{Binding Name}" MinWidth="50"/>
-                            <TextBlock Text="{Binding ReleaseYear}" MinWidth="50"/>
-                            <TextBlock Text="{Binding ProducerName}" MinWidth="50"/>
-                            <Button  Command="{Binding ElementName=GamesListBox, Path=DataContext.ShowGameDetailsCommand }" CommandParameter="{Binding }">Details</Button>
-                            <Button  Command="{Binding ElementName=GamesListBox, Path=DataContext.EditGameCommand }" CommandParameter="{Binding }">Edit</Button>
-                            <Button  Command="{Binding ElementName=GamesListBox, Path=DataContext.DeleteGameCommand }" CommandParameter="{Binding }">Delete</Button>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </DockPanel>
-    </Grid>
+
+        <ListBox Name="GamesListBox" ItemsSource="{Binding Games}"  Margin="0,20,0,20">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Name="GameListItem">
+                        <TextBlock Text="{Binding ID}" Width="50" />
+                        <TextBlock Text="{Binding Name}" Width="100" TextWrapping="Wrap" />
+                        <TextBlock Text="{Binding ReleaseYear}" Width="50" />
+                        <TextBlock Text="{Binding ProducerName}" Width="100" TextWrapping="Wrap" />
+                        <TextBlock Text="{Binding Price}" Width="100" />
+                        <Button  Command="{Binding ElementName=GamesListBox, Path=DataContext.ShowGameDetailsCommand }" CommandParameter="{Binding }" Style="{StaticResource PrimaryButton}">Details</Button>
+                        <Button  Command="{Binding ElementName=GamesListBox, Path=DataContext.EditGameCommand }" CommandParameter="{Binding }" Style="{StaticResource SecondaryButton}">Edit</Button>
+                        <Button  Command="{Binding ElementName=GamesListBox, Path=DataContext.DeleteGameCommand }" CommandParameter="{Binding }" Style="{StaticResource DangerButton}">Delete</Button>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+
 </Page>

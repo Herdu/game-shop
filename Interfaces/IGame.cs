@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MateuszDobrowolski.Core;
+using System;
 
 namespace MateuszDobrowolski.Interfaces
 {
@@ -8,5 +9,7 @@ namespace MateuszDobrowolski.Interfaces
         string Name { get; set; }
         DateTime ReleaseDate { get; set; }
         IProducer Producer { get; set; }
+        decimal Price { get; set; }
+        GameType Type { get; set; }
     }
 }

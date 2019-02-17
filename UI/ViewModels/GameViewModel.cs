@@ -31,6 +31,37 @@ namespace MateuszDobrowolski.UI.ViewModels
             get => _game.Name;
         }
 
+        public string Type
+        {
+            get => _game.Type.ToString();
+        }
+
+        public string ProducerName
+        {
+            get => _game.Producer.Name;
+        }
+
+        public int ProducerFunded
+        {
+            get => _game.Producer.Funded;
+        }
+
+        public string ProducerDescription
+        {
+            get => _game.Producer.Description;
+        }
+
+        public string ReleaseDate
+        {
+            get => _game.ReleaseDate.ToShortDateString();
+        }
+
+
+        public decimal Price
+        {
+            get => _game.Price;
+        }
+
         private void GoToList()
         {
             GoToPage(new GameListView());

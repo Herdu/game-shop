@@ -32,5 +32,20 @@ namespace MateuszDobrowolski.UI.ViewModels
         {
             get => _game.ReleaseDate.Year;
         }
+
+        public int ProducerFounded
+        {
+            get => _game.Producer.Funded;
+        }
+
+        public string ProducerDescription
+        {
+            get => _game.Producer.Description;
+        }
+
+        public string Price
+        {
+            get => (_game.Price).ToString() + " PLN";
+        }
     }
 }

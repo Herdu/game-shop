@@ -1,4 +1,5 @@
 ﻿using System;
+using MateuszDobrowolski.Core;
 using MateuszDobrowolski.Interfaces;
 
 namespace MateuszDobrowolski.DAOMock.DataObjects
@@ -9,6 +10,8 @@ namespace MateuszDobrowolski.DAOMock.DataObjects
         public string Name { get; set; }
         public IProducer Producer { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public decimal Price { get; set; }
+        public GameType Type { get; set; }
 
         public Game() {}
 
@@ -18,6 +21,8 @@ namespace MateuszDobrowolski.DAOMock.DataObjects
             Name = data.Name;
             Producer = data.Producer;
             ReleaseDate = data.ReleaseDate;
+            Price = data.Price;
+            Type = data.Type;
         }
     }
 }

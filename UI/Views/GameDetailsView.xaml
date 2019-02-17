@@ -1,13 +1,49 @@
 ﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"	
 	         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="MateuszDobrowolski.UI.Views.GameDetailsView">
-    <Grid>
-        <StackPanel>
-            <TextBlock Text="{Binding ID}"></TextBlock>
-            <TextBlock Text="{Binding Name}"></TextBlock>
-            <Button Command="{ Binding EditGameCommand }">Edit</Button>
-            <Button Command="{ Binding DeleteGameCommand }">Delete</Button>
-            <Button Command="{ Binding GoToListCommand }">Back to List</Button>
+             x:Class="MateuszDobrowolski.UI.Views.GameDetailsView"
+      Margin="20">
+    <DockPanel LastChildFill="False">
+        <TextBlock DockPanel.Dock="Top" Style="{StaticResource PageTitle}" Text="{Binding Name}"></TextBlock>
+
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0">Game id:</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding ID}"></TextBlock>
+                <TextBlock Grid.Row="1">Name:</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Name}"></TextBlock>
+                <TextBlock Grid.Row="2">Type:</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Type}"></TextBlock>
+                <TextBlock Grid.Row="3">Release date:</TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding ReleaseDate}"></TextBlock>
+                <TextBlock Grid.Row="4">Producer:</TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding ProducerName}"></TextBlock>
+                <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding ProducerDescription}" TextWrapping="Wrap"></TextBlock>
+                <TextBlock Grid.Row="6">Price (PLN):</TextBlock>
+                <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding Price}"></TextBlock>
+            </Grid>
+        </Grid>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" Style="{StaticResource BottomMenu}">
+            <Button Width="auto" Command="{ Binding EditGameCommand }" Style="{StaticResource PrimaryButton}">Edit</Button>
+            <Button Width="auto" Command="{ Binding DeleteGameCommand }" Style="{StaticResource DangerButton}">Delete</Button>
+            <Button Width="auto" Command="{ Binding GoToListCommand }" Style="{StaticResource SecondaryButton}">Back to List</Button>
         </StackPanel>
-    </Grid>
+    </DockPanel>
 </Page>

@@ -6,6 +6,7 @@ namespace MateuszDobrowolski.DAOMock.DataObjects
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public int Founded { get; set; }
+        public int Funded { get; set; }
+        public string Description { get; set; }
     }
 }

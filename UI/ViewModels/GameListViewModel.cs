@@ -1,6 +1,9 @@
-﻿using MateuszDobrowolski.UI.Helpers;
+﻿using MateuszDobrowolski.Core;
+using MateuszDobrowolski.UI.Helpers;
 using MateuszDobrowolski.UI.Views;
+using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 
 namespace MateuszDobrowolski.UI.ViewModels
@@ -9,6 +12,7 @@ namespace MateuszDobrowolski.UI.ViewModels
     {
         public ObservableCollection<GameListItemViewModel> Games { get; set; } = new ObservableCollection<GameListItemViewModel>();
         public ObservableCollection<SelectOption> ProducerSelectOptions { get; set; } = new ObservableCollection<SelectOption>();
+        public ObservableCollection<SelectOption> GameTypeSelectOptions { get; set; } = new ObservableCollection<SelectOption>();
         public RelayCommand ShowGameDetailsCommand { get; }
         public RelayCommand EditGameCommand { get; }
         public RelayCommand NewGameCommand { get; }
@@ -29,7 +33,8 @@ namespace MateuszDobrowolski.UI.ViewModels
 
         private string _filterName;
 
-        public string FilterName {
+        public string FilterName 
+        {
             get => _filterName;
             set {
                 _filterName = value;
@@ -37,11 +42,23 @@ namespace MateuszDobrowolski.UI.ViewModels
             }
         }
 
+        private SelectOption _filterGameType;
+
+        public SelectOption FilterGameType
+        {
+            get => _filterGameType;
+            set
+            {
+                _filterGameType = value;
+                OnPropertyChanged("FilterGameType");
+            }
+        }
+
         public GameListViewModel()
         {
             GetGames();
             InitProducerOptions();
-            OnPropertyChanged("ProducerSelectOptions");
+            InitGameTypeOptions();
             ShowGameDetailsCommand = new RelayCommand(param => GoToPage(new GameDetailsView((param as GameListItemViewModel).ID)));
             FilterCommand = new RelayCommand(param => GetGames());
             ResetFilterCommand = new RelayCommand(param => ResetFilters());
@@ -58,6 +75,21 @@ namespace MateuszDobrowolski.UI.ViewModels
             {
                 ProducerSelectOptions.Add(new SelectOption() { Name=producer.Name, Value=producer.ID });
             }
+            OnPropertyChanged("ProducerSelectOptions");
+        }
+
+        private void InitGameTypeOptions()
+        {
+            GameTypeSelectOptions.Add(new SelectOption() { Name = "All", Value = -1 });
+
+            var values = Enum.GetValues(typeof(GameType));
+            var types = values.Cast<GameType>();
+
+            foreach (var type in types)
+            {
+                GameTypeSelectOptions.Add(new SelectOption() { Name = type.ToString(), Value = (int)type });
+            }
+            OnPropertyChanged("GameTypeSelectOptions");
         }
 
         private void GetGames()
@@ -65,8 +97,9 @@ namespace MateuszDobrowolski.UI.ViewModels
             Games.Clear();
             string name = FilterName ?? "";
             int producerId =  FilterProducer is null ? -1 : FilterProducer.Value;
+            int gameType = FilterGameType is null ? -1 : FilterGameType.Value;
 
-            foreach (var game in BLC.BLC.DAO.GetGames(name, producerId))
+            foreach (var game in BLC.BLC.DAO.GetGames(name, producerId, gameType))
             {
                 Games.Add(new GameListItemViewModel(game));
             }
@@ -76,7 +109,10 @@ namespace MateuszDobrowolski.UI.ViewModels
         private void ResetFilters()
         {
             FilterProducer = ProducerSelectOptions[0];
+            OnPropertyChanged("ProducerSelectOptions");
+            FilterGameType = GameTypeSelectOptions[0];
             FilterName = "";
+            GetGames();
         }
 
         private void DeleteGame(int gameId)
