@@ -6,7 +6,8 @@
             <TextBlock Text="{Binding ID}"></TextBlock>
             <TextBlock Text="{Binding Name}"></TextBlock>
             <Button Command="{ Binding EditGameCommand }">Edit</Button>
-            <Button Command="{ Binding GoToListCommand }"> Back to List </Button>
+            <Button Command="{ Binding DeleteGameCommand }">Delete</Button>
+            <Button Command="{ Binding GoToListCommand }">Back to List</Button>
         </StackPanel>
     </Grid>
 </Page>

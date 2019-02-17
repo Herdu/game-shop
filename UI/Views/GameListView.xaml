@@ -26,6 +26,7 @@
                             <TextBlock Text="{Binding ProducerName}" MinWidth="50"/>
                             <Button  Command="{Binding ElementName=GamesListBox, Path=DataContext.ShowGameDetailsCommand }" CommandParameter="{Binding }">Details</Button>
                             <Button  Command="{Binding ElementName=GamesListBox, Path=DataContext.EditGameCommand }" CommandParameter="{Binding }">Edit</Button>
+                            <Button  Command="{Binding ElementName=GamesListBox, Path=DataContext.DeleteGameCommand }" CommandParameter="{Binding }">Delete</Button>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
