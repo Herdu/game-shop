@@ -55,17 +55,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\SelectOption.cs" />
     <Compile Include="RelayCommands.cs" />
     <Compile Include="Switcher.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\GameFormViewModel.cs" />
     <Compile Include="ViewModels\GameListItemViewModel.cs" />
     <Compile Include="ViewModels\GameListViewModel.cs" />
     <Compile Include="ViewModels\GameViewModel.cs" />
     <Compile Include="Views\GameDetailsView.xaml.cs">
       <DependentUpon>GameDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GameList.xaml.cs">
-      <DependentUpon>GameList.xaml</DependentUpon>
+    <Compile Include="Views\GameFormView.xaml.cs">
+      <DependentUpon>GameFormView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameListView.xaml.cs">
+      <DependentUpon>GameListView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -83,7 +88,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\GameList.xaml">
+    <Page Include="Views\GameFormView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

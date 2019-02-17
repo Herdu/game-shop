@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using MateuszDobrowolski.Core;
 using MateuszDobrowolski.Interfaces;
 
 namespace MateuszDobrowolski.DAOMock.DataObjects
@@ -10,13 +8,16 @@ namespace MateuszDobrowolski.DAOMock.DataObjects
         public int ID { get; set; }
         public string Name { get; set; }
         public IProducer Producer { get; set; }
-        public List<IGameRelease> Releases { get; set; }
+        public DateTime ReleaseDate { get; set; }
 
-        public override string ToString()
+        public Game() {}
+
+        public Game(IGame data)
         {
-            return $" \n {Name} \n producer: {Producer.Name} \n releases: \n   {(Releases.ToArray().Length > 0 ? String.Join("\n   ", Releases) : "none")} \n";
+            ID = data.ID;
+            Name = data.Name;
+            Producer = data.Producer;
+            ReleaseDate = data.ReleaseDate;
         }
     }
-
-
 }

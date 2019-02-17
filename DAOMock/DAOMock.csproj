@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataObjects\Game.cs" />
-    <Compile Include="DataObjects\GameRelease.cs" />
     <Compile Include="DataObjects\Producer.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

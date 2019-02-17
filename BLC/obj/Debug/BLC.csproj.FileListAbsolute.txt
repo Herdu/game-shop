@@ -11,4 +11,3 @@ C:\Users\matt\dev\game-shop\BLC\obj\Debug\BLC.csproj.CoreCompileInputs.cache
 C:\Users\matt\dev\game-shop\BLC\obj\Debug\BLC.csproj.CopyComplete
 C:\Users\matt\dev\game-shop\BLC\obj\Debug\BLC.dll
 C:\Users\matt\dev\game-shop\BLC\obj\Debug\BLC.pdb
-C:\Users\matt\dev\game-shop\BLC\obj\Debug\BLC.csprojAssemblyReference.cache

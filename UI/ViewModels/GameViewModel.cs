@@ -6,6 +6,7 @@ namespace MateuszDobrowolski.UI.ViewModels
     public class GameViewModel: BaseViewModel
     {
         public RelayCommand GoToListCommand { get; }
+        public RelayCommand EditGameCommand { get; }
 
         private int _id;
         private IGame _game;
@@ -14,13 +15,8 @@ namespace MateuszDobrowolski.UI.ViewModels
         {
             _id = id;
            
-
-            if (_game is null)
-            {
-                GoToList();
-            }
-
-            GoToListCommand = new RelayCommand(param => GoToList());
+            GoToListCommand = new RelayCommand(param => GoToPage(new GameListView()));
+            EditGameCommand = new RelayCommand(param => GoToPage(new GameFormView(_id)));
             _game = BLC.BLC.DAO.GetGameById(_id);
         }
 
@@ -32,11 +28,6 @@ namespace MateuszDobrowolski.UI.ViewModels
         public string Name
         {
             get => _game.Name;
-        }
-
-        private void GoToList()
-        {
-            Switcher.Switch(new GameList());
         }
     }
 }

@@ -23,17 +23,14 @@ namespace MateuszDobrowolski.UI.ViewModels
             get => _game.Name;
         }
 
-        public int? FirstReleaseYear
+        public string ProducerName
         {
-            get
-            {
-                if (_game.Releases.Count > 0)
-                {
-                    _game.Releases.Sort((x, y) => DateTime.Compare(x.Date, y.Date));
-                    return _game.Releases[0].Date.Year;
-                }
-                return null;
-            }
+            get => _game.Producer.Name;
+        }
+
+        public int ReleaseYear
+        {
+            get => _game.ReleaseDate.Year;
         }
     }
 }

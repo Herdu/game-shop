@@ -4,9 +4,9 @@ using System.Windows.Controls;
 
 namespace MateuszDobrowolski.UI.Views
 {
-    public partial class GameList: Page
+    public partial class GameListView: Page
     {
-        public GameList()
+        public GameListView()
         {
             InitializeComponent();
         }

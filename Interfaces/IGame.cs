@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
 namespace MateuszDobrowolski.Interfaces
 {
@@ -6,7 +6,7 @@ namespace MateuszDobrowolski.Interfaces
     {
         int ID { get; set; }
         string Name { get; set; }
-        List<IGameRelease> Releases { get; set; }
+        DateTime ReleaseDate { get; set; }
         IProducer Producer { get; set; }
     }
 }

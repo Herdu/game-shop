@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MateuszDobrowolski.Interfaces;
 
 namespace MateuszDobrowolski.DAOMock
@@ -25,10 +26,7 @@ namespace MateuszDobrowolski.DAOMock
                 ID = 1,
                 Name = "World of Warcraft",
                 Producer = Blizzard,
-                Releases = new List<IGameRelease>()
-                {
-                    new DataObjects.GameRelease() { Date = new DateTime(2004, 12,24), Platform = Core.Platform.PC, Price=119.99m }
-                }
+                ReleaseDate = new DateTime(2004, 11, 23),
             };
 
             _games.Add(WorldOfWarcraft);
@@ -38,24 +36,18 @@ namespace MateuszDobrowolski.DAOMock
                 ID = 2,
                 Name = "Fifa 18",
                 Producer = EAGames,
-                Releases = new List<IGameRelease>()
-               {
-                new DataObjects.GameRelease() { Date = new DateTime(2017, 9,3), Platform = Core.Platform.PC, Price=159.99m },
-                new DataObjects.GameRelease() { Date = new DateTime(2017, 10,2), Platform = Core.Platform.Playstation4, Price=259.99m },
-                new DataObjects.GameRelease() { Date = new DateTime(2017, 11,5), Platform = Core.Platform.XboxOne, Price=249.99m },
-               }
+                ReleaseDate = new DateTime(2016, 8, 27),
             };
             _games.Add(Fifa18);
 
             DataObjects.Game Fifa20 = new DataObjects.Game()
             {
                 ID = 3,
-                Name = "Fifa20",
+                Name = "Fifa 20",
                 Producer = EAGames,
-                Releases = new List<IGameRelease>(),
+                ReleaseDate = new DateTime(2019, 8, 27),
             };
             _games.Add(Fifa20);
-
         }
 
         public IGame GetGameById(int id)
@@ -68,6 +60,24 @@ namespace MateuszDobrowolski.DAOMock
             return _games;
         }
 
+        public IEnumerable<IGame> GetGames(string name = "", int producerId = -1)
+        {
+            IEnumerable<IGame> games = GetAllGames();
+
+            string filterName = name.ToLower();
+            if(name.Length > 0)
+            {
+                games = games.Where(o => (o.Name.ToLower()).Contains(filterName));
+            }
+
+            if(producerId >= 0)
+            {
+                games = games.Where(o => o.Producer.ID == producerId);
+            }
+
+            return games;
+        }
+
         public IEnumerable<IProducer> GetAllProducers()
         {
             return _producers;
@@ -75,17 +85,27 @@ namespace MateuszDobrowolski.DAOMock
 
         public IGame NewGame()
         {
-            return new DataObjects.Game();
+            int newId;
+            IEnumerable<IGame> games = GetAllGames().OrderBy(o=> o.ID);
+            if(games.Count() == 0)
+            {
+                newId = 1;
+            } else
+            {
+                newId = games.Last().ID + 1;
+            }
+            
+            return new DataObjects.Game() { ID = newId };
         }
 
-        public IGameRelease NewGameRelease()
+        public void DeleteGame(int gameId)
         {
-            return new DataObjects.GameRelease();
+            _games = GetAllGames().Where(o=> o.ID != gameId).ToList();
         }
 
-        public IProducer NewProducer()
+        public void SaveGame(IGame game)
         {
-            return new DataObjects.Producer();
+            _games.Add(new DataObjects.Game(game));
         }
     }
 }

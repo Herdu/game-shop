@@ -11,16 +11,11 @@ namespace MateuszDobrowolski.UI
         {
             InitializeComponent();
             Switcher.pageSwitcher = this;
-            Switcher.Switch(new GameList());
+            Navigate(new GameListView());
         }
 
 
         public void Navigate(Page nextPage)
-        {
-            Content = nextPage;
-        }
-
-        public void Navigate(Page nextPage, object state)
         {
             Content = nextPage;
         }

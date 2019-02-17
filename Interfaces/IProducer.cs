@@ -1,5 +1,4 @@
-﻿
-namespace MateuszDobrowolski.Interfaces
+﻿namespace MateuszDobrowolski.Interfaces
 {
     public interface IProducer
     {

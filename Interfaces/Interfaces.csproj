@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="IDAO.cs" />
     <Compile Include="IGame.cs" />
-    <Compile Include="IGameRelease.cs" />
     <Compile Include="IProducer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,5 +1,4 @@
-﻿using MateuszDobrowolski.Core;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MateuszDobrowolski.Interfaces
 {
@@ -7,10 +6,11 @@ namespace MateuszDobrowolski.Interfaces
     {
         IEnumerable<IGame> GetAllGames();
         IEnumerable<IProducer> GetAllProducers();
+        IEnumerable<IGame> GetGames(string name, int producerId);
         IGame NewGame();
-        IGameRelease NewGameRelease();
-        IProducer NewProducer();
         IGame GetGameById(int id);
+        void DeleteGame(int gameId);
+        void SaveGame(IGame game);
     }
 }
     
