@@ -38,8 +38,7 @@ namespace MateuszDobrowolski.UI.ViewModels
                 OnPropertyChanged("Name");
             }
         }
-
-        [Required(ErrorMessage = "Producer is required")]
+        [Required(ErrorMessage = "Price is required")]
         public IProducer Producer
         {
             get => _game.Producer;
@@ -50,8 +49,7 @@ namespace MateuszDobrowolski.UI.ViewModels
                 OnPropertyChanged("Producer");
             }
         }
-
-        [Required(ErrorMessage = "Game type is required")]
+        [Required(ErrorMessage = "Price is required")]
         public SelectOption GameType
         {
             get {
@@ -68,19 +66,22 @@ namespace MateuszDobrowolski.UI.ViewModels
             }
         }
 
+        private string _priceInput;
+
         [Required(ErrorMessage = "Price is required")]
-        public decimal Price
+        [RegularExpression(@"^(?!0*\.0+$)\d*(?:\.\d+)?$", ErrorMessage = "Price must be a valid number")]
+        public string Price
         {
-            get => _game.Price;
+            get => _priceInput;
             set {
-                _game.Price = value;
+                 _priceInput = value;
+                decimal.TryParse(value, out decimal d);
+                _game.Price = d;
                 Validate();
                 OnPropertyChanged("Price");
             }
         }
 
-        [Required(ErrorMessage = "Release date is required")]
-        [Range(typeof(DateTime), "1/1/1950","1/1/2100", ErrorMessage = "Value for must be between and ")]
         public DateTime ReleaseDate
         {
             get => _game.ReleaseDate;
@@ -112,6 +113,7 @@ namespace MateuszDobrowolski.UI.ViewModels
             GoToListCommand = new RelayCommand(param => GoToList());
             SaveGameCommand = new RelayCommand(param => Save(), param=> CanSave());
             InitGameTypeOptions();
+            Validate();
         }
 
         private void InitGameTypeOptions()

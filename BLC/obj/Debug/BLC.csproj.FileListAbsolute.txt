@@ -7,6 +7,7 @@ C:\Users\matt\dev\game-shop\BLC\bin\Debug\Core.pdb
 C:\Users\matt\dev\game-shop\BLC\bin\Debug\Core.dll.config
 C:\Users\matt\dev\game-shop\BLC\bin\Debug\Interfaces.pdb
 C:\Users\matt\dev\game-shop\BLC\bin\Debug\Interfaces.dll.config
+C:\Users\matt\dev\game-shop\BLC\obj\Debug\BLC.csprojAssemblyReference.cache
 C:\Users\matt\dev\game-shop\BLC\obj\Debug\BLC.csproj.CoreCompileInputs.cache
 C:\Users\matt\dev\game-shop\BLC\obj\Debug\BLC.csproj.CopyComplete
 C:\Users\matt\dev\game-shop\BLC\obj\Debug\BLC.dll

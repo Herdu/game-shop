@@ -3,6 +3,7 @@ using MateuszDobrowolski.UI.Helpers;
 using MateuszDobrowolski.UI.Views;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 
@@ -27,7 +28,7 @@ namespace MateuszDobrowolski.UI.ViewModels
             set
             {
                 _filterProducer = value;
-                OnPropertyChanged("FilterProducer");
+               OnPropertyChanged("FilterProducer");
             }
         }
 
