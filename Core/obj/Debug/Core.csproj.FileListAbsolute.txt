@@ -5,9 +5,3 @@ C:\Users\Mateusz Dobrowolski\source\repos\GameShop\Core\bin\Debug\Core.dll
 C:\Users\Mateusz Dobrowolski\source\repos\GameShop\Core\bin\Debug\Core.pdb
 C:\Users\Mateusz Dobrowolski\source\repos\GameShop\Core\obj\Debug\Core.dll
 C:\Users\Mateusz Dobrowolski\source\repos\GameShop\Core\obj\Debug\Core.pdb
-C:\Users\matt\dev\game-shop\Core\bin\Debug\Core.dll.config
-C:\Users\matt\dev\game-shop\Core\bin\Debug\Core.dll
-C:\Users\matt\dev\game-shop\Core\bin\Debug\Core.pdb
-C:\Users\matt\dev\game-shop\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
-C:\Users\matt\dev\game-shop\Core\obj\Debug\Core.dll
-C:\Users\matt\dev\game-shop\Core\obj\Debug\Core.pdb

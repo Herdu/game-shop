@@ -4,7 +4,7 @@ using System.Linq;
 using MateuszDobrowolski.Core;
 using MateuszDobrowolski.Interfaces;
 
-namespace MateuszDobrowolski.DAOMock
+namespace MateuszDobrowolski.DAOMock2
 {
     public class DB : IDAO
     {

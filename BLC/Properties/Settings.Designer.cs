@@ -25,7 +25,7 @@ namespace MateuszDobrowolski.BLC.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\matt\\dev\\game-shop\\DAOMock\\bin\\Debug\\DAOMock.dll")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\matt\\dev\\game-shop\\DAOMock2\\bin\\Debug\\DAOMock2.dll")]
         public string dbNameConf {
             get {
                 return ((string)(this["dbNameConf"]));

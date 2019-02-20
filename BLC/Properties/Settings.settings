@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="dbNameConf" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\Users\matt\dev\game-shop\DAOMock\bin\Debug\DAOMock.dll</Value>
+      <Value Profile="(Default)">C:\Users\matt\dev\game-shop\DAOMock2\bin\Debug\DAOMock2.dll</Value>
     </Setting>
   </Settings>
 </SettingsFile>
