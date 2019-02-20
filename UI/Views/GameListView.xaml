@@ -15,7 +15,7 @@
             <TextBlock>Type:</TextBlock>
             <ComboBox Width="100" ItemsSource="{Binding GameTypeSelectOptions}" DisplayMemberPath="Name" SelectedIndex="0" SelectedItem="{Binding FilterGameType, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
             <TextBlock>Name:</TextBlock>
-            <TextBox Width="100" Text="{Binding FilterName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,15,0"></TextBox>
+            <TextBox Width="100" Text="{Binding FilterName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,15,0" VerticalContentAlignment="Center"></TextBox>
             <Button  Command="{Binding FilterCommand}" Style="{StaticResource PrimaryButton}">Search</Button>
             <Button Command="{Binding ResetFilterCommand}" Style="{StaticResource SecondaryButton}">Clear</Button>
         </StackPanel>

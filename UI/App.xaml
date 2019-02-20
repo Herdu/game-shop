@@ -41,15 +41,5 @@
             <Setter Property="FontWeight" Value="ExtraBold" />
             <Setter Property="Foreground" Value="#007bff" />
         </Style>
-        <Style TargetType="DatePickerTextBox">
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Padding" Value="4" />
-        </Style>
-        <Style TargetType="DatePicker">
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-        </Style>
-
-
-
     </Application.Resources>
 </Application>

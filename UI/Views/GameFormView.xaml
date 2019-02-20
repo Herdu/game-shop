@@ -63,17 +63,18 @@
 
                 <Label Grid.Row="0">Name</Label>
 
-                <TextBox Name="Siema" Grid.Row="0" Grid.Column="1" Style="{StaticResource ControlWithErrors}" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+                <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource ControlWithErrors}" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Padding="15, 4" />
                 <Label Grid.Row="1">Producer</Label>
                 <ComboBox Grid.Row="1" Grid.Column="1" Style="{StaticResource ControlWithErrors}" ItemsSource="{Binding Producers}" DisplayMemberPath="Name"  SelectedItem="{Binding Producer,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" />
                 <Label Grid.Row="2">Release date</Label>
-                <DatePicker Grid.Row="2" Grid.Column="1" Style="{StaticResource ControlWithErrors}"  SelectedDate="{Binding ReleaseDate, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" VerticalAlignment="Center">
+                <DatePicker Grid.Row="2" Grid.Column="1" Style="{StaticResource ControlWithErrors}" SelectedDate="{Binding ReleaseDate, UpdateSourceTrigger=PropertyChanged}" Padding="15, 8" VerticalContentAlignment="Center">
+
                 </DatePicker>
                 <Label Grid.Row="3">Game type</Label>
                 <ComboBox Grid.Row="3" Grid.Column="1" Style="{StaticResource ControlWithErrors}" ItemsSource="{Binding GameTypeSelectOptions}" DisplayMemberPath="Name" SelectedItem="{Binding GameType,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" />
 
                 <Label Grid.Row="4">Price (PLN)</Label>
-                <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource ControlWithErrors}" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center"></TextBox>
+                <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource ControlWithErrors}" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" Padding="15, 4" />
             </Grid>
         </Grid>
 

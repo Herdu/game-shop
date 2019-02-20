@@ -27,7 +27,7 @@ namespace MateuszDobrowolski.UI.ViewModels
         }
 
         [Required(ErrorMessage = "Name is required")]
-        [StringLength(30, MinimumLength = 3, ErrorMessage = "Name length must be between {0} and 30 letters")]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "Name length must be between 3 and 30 letters")]
         public string Name
         {
             get => _game.Name;
@@ -36,9 +36,9 @@ namespace MateuszDobrowolski.UI.ViewModels
                 _game.Name = value;
                 Validate();
                 OnPropertyChanged("Name");
-            }
+            } 
         }
-        [Required(ErrorMessage = "Price is required")]
+        [Required(ErrorMessage = "Producer is required")]
         public IProducer Producer
         {
             get => _game.Producer;
@@ -49,7 +49,7 @@ namespace MateuszDobrowolski.UI.ViewModels
                 OnPropertyChanged("Producer");
             }
         }
-        [Required(ErrorMessage = "Price is required")]
+        [Required(ErrorMessage = "Game type is required")]
         public SelectOption GameType
         {
             get {
@@ -69,7 +69,8 @@ namespace MateuszDobrowolski.UI.ViewModels
         private string _priceInput;
 
         [Required(ErrorMessage = "Price is required")]
-        [RegularExpression(@"^(?!0*\.0+$)\d*(?:\.\d+)?$", ErrorMessage = "Price must be a valid number")]
+        [RegularExpression(@"^\s*(?=.*[1-9])\d*(?:\,\d{1,2})?\s*$", ErrorMessage = "Price must be a valid positive number (with max. 2 decimal places)")]
+
         public string Price
         {
             get => _priceInput;
@@ -81,6 +82,9 @@ namespace MateuszDobrowolski.UI.ViewModels
                 OnPropertyChanged("Price");
             }
         }
+
+        [Required(ErrorMessage = "Price is required")]
+        [Range(typeof(DateTime), "1/1/1950", "1/1/2099", ErrorMessage = "Date is out of Range")]
 
         public DateTime ReleaseDate
         {
@@ -108,6 +112,7 @@ namespace MateuszDobrowolski.UI.ViewModels
                 IsNew = true;
                 _game = BLC.BLC.DAO.NewGame();
             }
+            _priceInput = _game.Price.ToString();
 
             Producers = new ObservableCollection<IProducer>(BLC.BLC.DAO.GetAllProducers());
             GoToListCommand = new RelayCommand(param => GoToList());

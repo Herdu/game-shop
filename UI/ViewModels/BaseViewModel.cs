@@ -68,8 +68,8 @@ namespace MateuszDobrowolski.UI.ViewModels
 
         protected void Validate()
         {
-            var validationContext = new ValidationContext(this, null, null);
-            var validationResults = new List<ValidationResult>();
+            ValidationContext validationContext = new ValidationContext(this, null, null);
+            List<ValidationResult> validationResults = new List<ValidationResult>();
 
             Validator.TryValidateObject(this, validationContext, validationResults, true);
 
