@@ -1,7 +1,0 @@
-C:\Users\Mateusz Dobrowolski\source\repos\GameShop\Core\obj\Debug\Core.csprojAssemblyReference.cache
-C:\Users\Mateusz Dobrowolski\source\repos\GameShop\Core\obj\Debug\Core.csproj.CoreCompileInputs.cache
-C:\Users\Mateusz Dobrowolski\source\repos\GameShop\Core\bin\Debug\Core.dll.config
-C:\Users\Mateusz Dobrowolski\source\repos\GameShop\Core\bin\Debug\Core.dll
-C:\Users\Mateusz Dobrowolski\source\repos\GameShop\Core\bin\Debug\Core.pdb
-C:\Users\Mateusz Dobrowolski\source\repos\GameShop\Core\obj\Debug\Core.dll
-C:\Users\Mateusz Dobrowolski\source\repos\GameShop\Core\obj\Debug\Core.pdb
